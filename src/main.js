@@ -1,10 +1,19 @@
 import Vue from 'vue'
+import FastClick from 'fastclick';
+import 'lib-flexible';
 import App from './App.vue'
 import router from './router'
 import store from './store/index'
 import filters from './filters/index'
-import wechat from '@/common/wechat/index'
-Vue.use(wechat);
+// import wechat from '@/common/wechat/index'
+// Vue.use(wechat);
+
+if ('addEventListener' in document) {
+    document.addEventListener('DOMContentLoaded', () => {
+        FastClick.attach(document.body);
+    }, false);
+}
+
 // 注入全局过滤器
 Object.keys(filters).forEach(item => {
     Vue.filter(item, filters[item])
