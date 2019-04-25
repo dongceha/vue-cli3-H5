@@ -5,6 +5,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store/index'
 import filters from './filters/index'
+import 'normalize.css';
 // import wechat from '@/common/wechat/index'
 // Vue.use(wechat);
 

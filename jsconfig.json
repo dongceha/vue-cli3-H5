@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "assets/*": ["./src/assets/*"],
+      "components/*": ["./src/components/*"],
+      "layout/*": ["./src/layout/*"],
+      "base/*": ["./src/base/*"],
+      "static/*": ["./src/static/*"],
+      "api/*": ["./src/api/*"],
+    }
+  }
+}
