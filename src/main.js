@@ -9,14 +9,14 @@ import filters from './filters/index'
 // Vue.use(wechat);
 
 if ('addEventListener' in document) {
-    document.addEventListener('DOMContentLoaded', () => {
-        FastClick.attach(document.body);
-    }, false);
+  document.addEventListener('DOMContentLoaded', () => {
+    FastClick.attach(document.body);
+  }, false);
 }
 
 // 注入全局过滤器
 Object.keys(filters).forEach(item => {
-    Vue.filter(item, filters[item])
+  Vue.filter(item, filters[item])
 })
 // const wx = Vue.wechat;
 // wx.config({
@@ -29,7 +29,7 @@ Object.keys(filters).forEach(item => {
 Vue.config.productionTip = false
 Vue.config.devtools = true
 new Vue({
-    router,
-    store,
-    render: h => h(App)
+  router,
+  store,
+  render: h => h(App)
 }).$mount('#app')

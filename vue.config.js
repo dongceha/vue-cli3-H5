@@ -134,6 +134,14 @@ module.exports = {
         https: false,
         hotOnly: false,
         // 设置代理，用来解决本地开发跨域问题，如果设置了代理，那你本地开发环境的axios的baseUrl要写为 '' ，即空字符串
-        // proxy: 'https://easy-mock.com/' // 设置代理
+        proxy: {
+            '/api': {
+                target: 'http://api.douban.com/v2', // 设置代理
+                changeOrigin: true,
+                pathRewrite: {
+                    '^/api': ''
+                }
+            }
+        }
     }
 }
