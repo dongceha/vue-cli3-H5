@@ -29,6 +29,18 @@ export default {
           this.busy = false;
           Indicator.close();
         });
+    },
+    getDetail() {
+      Indicator.open({
+        text: '加载中...',
+        spinnerType: 'fading-circle'
+      });
+      this.$store.dispatch('movie/getMovieById', this.id)
+        .then(() => {
+          Indicator.close();
+        }).catch(() => {
+          Indicator.close();
+        });
     }
   }
 }

@@ -1,17 +1,24 @@
 import * as type from '../types'
 import {
-  getItemByType
+  getItemByType,
+  getMovieById
 } from 'api/index'
 export default {
   namespaced: true,
   state: {
     movieList: [],
-    isDone: false,
+    movieDetail: {},
+    isDone: false
   },
   mutations: {
     [type.SET_ITEM_BY_TYPE](state, subjects) {
-      subjects.length === 0 ? state.isDone = true : '';
+      if (subjects.length === 0) {
+        state.isDone = true;
+      }
       state.movieList = [...state.movieList, ...subjects];
+    },
+    [type.SET_MOVIE_BY_ID](state, detail) {
+      state.movieDetail = { ...detail };
     }
   },
   actions: {
@@ -21,6 +28,13 @@ export default {
           subjects
         } = await getItemByType(param)
         state.commit(type.SET_ITEM_BY_TYPE, subjects);
+      } catch (error) {
+      }
+    },
+    async getMovieById(state, param) {
+      try {
+        let movieDetail = await getMovieById(param)
+        state.commit(type.SET_MOVIE_BY_ID, movieDetail);
       } catch (error) {
       }
     }

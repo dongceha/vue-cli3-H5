@@ -8,8 +8,10 @@
     </Header>
     <div class="movies-container" v-if="movieList.length > 0">
       <div v-for="item in movieList" :key="item.id">
-        <img v-lazy="item.images.medium">
-        <p class="movie-title">{{item.title}}</p>
+        <router-link :to="{name: 'movie-detail', query: {id: item.id}}">
+          <img v-lazy="item.images.medium">
+          <p class="movie-title">{{item.title}}</p>
+        </router-link>
       </div>
       <div class="itemempty"></div>
       <div class="itemempty"></div>
@@ -56,6 +58,9 @@ export default {
 }
 </script>
 <style>
+a{
+  text-decoration: none;
+}
 image[lazy=loading] {
   width: 100%;
   height: 100%;

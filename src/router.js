@@ -16,10 +16,19 @@ const router = new Router({
   {
     path: '/movies',
     name: 'movies',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: Movie
+    component: Movie,
+    meta: {
+      auth: false,
+      keepAlive: true
+    }
+  },
+  {
+    path: '/movie-detail',
+    name: 'movie-detail',
+    component: () => import('./views/movie/movie-detail.vue'),
+    meta: {
+      scroll: true
+    }
   },
   {
     path: '/login',
@@ -59,6 +68,11 @@ router.beforeEach((to, from, next) => {
     }
   } else {
     next()
+  }
+})
+router.afterEach((to, from) => {
+  if (to.meta.scroll) {
+    window.scrollTo(0, 0);
   }
 })
 export default router
