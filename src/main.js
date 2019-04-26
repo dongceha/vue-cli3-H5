@@ -6,6 +6,9 @@ import router from './router'
 import store from './store/index'
 import filters from './filters/index'
 import 'normalize.css';
+import { Lazyload } from 'mint-ui';
+
+Vue.use(Lazyload);
 // import wechat from '@/common/wechat/index'
 // Vue.use(wechat);
 

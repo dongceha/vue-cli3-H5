@@ -9,11 +9,6 @@ export const getItemByType = ({
   start = 0,
   count = 20
 }) => http.get(`/movie/${type}?start=${start}&count=${count}`);
-export const getItemById = ({
-  type,
-  start = 0,
-  count = 20
-}) => http.get(`/movie/${type}?start=${start}&count=${count}`);
 export const getMovieById = id => http.get(`/movie/subject/${id}`);
 export const getSearchMovies = ({
   query,
