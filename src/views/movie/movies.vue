@@ -9,7 +9,7 @@
     <div class="movies-container" v-if="movieList.length > 0">
       <div v-for="item in movieList" :key="item.id">
         <router-link :to="{name: 'movie-detail', query: {id: item.id}}">
-          <img v-lazy="item.images.medium">
+          <img referrerpolicy="no-referrer" :src="item.images.medium">
           <p class="movie-title">{{item.title}}</p>
         </router-link>
       </div>
@@ -100,6 +100,7 @@ image[lazy=loading] {
       img{
         width: 100%;
         height: calc(100% - 30px);
+        border-radius: 3px;
       }
       .movie-title{
         text-align: center;
